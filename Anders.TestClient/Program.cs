@@ -25,8 +25,16 @@ namespace Anders.TestClient
             var disco = await DiscoveryClient.GetAsync("http://localhost:5000");
 
             // request token
+
+            /*
+            // ...using Client Credential auth
             var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
             var tokenResponse = await tokenClient.RequestClientCredentialsAsync("api1");
+            */
+
+            // ...using Resource Owner Password auth
+            var tokenClient = new TokenClient(disco.TokenEndpoint, "ro.client", "secret");
+            var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("alice", "password", "api1");
 
             if (tokenResponse.IsError)
             {
