@@ -19,7 +19,7 @@
     "Anders.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "values",
+      "launchUrl": "identity",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

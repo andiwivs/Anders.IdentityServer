@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anders.IdentityServer", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anders.Api", "Anders.Api\Anders.Api.csproj", "{0C608780-2A97-4573-AD5E-7313DEED858C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anders.TestClient", "Anders.TestClient\Anders.TestClient.csproj", "{D34FF5E7-509B-4087-9457-DA9AB5D1B395}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,18 @@ Global
 		{0C608780-2A97-4573-AD5E-7313DEED858C}.Release|x64.Build.0 = Release|x64
 		{0C608780-2A97-4573-AD5E-7313DEED858C}.Release|x86.ActiveCfg = Release|x86
 		{0C608780-2A97-4573-AD5E-7313DEED858C}.Release|x86.Build.0 = Release|x86
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Debug|x64.ActiveCfg = Debug|x64
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Debug|x64.Build.0 = Debug|x64
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Debug|x86.ActiveCfg = Debug|x86
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Debug|x86.Build.0 = Debug|x86
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Release|x64.ActiveCfg = Release|x64
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Release|x64.Build.0 = Release|x64
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Release|x86.ActiveCfg = Release|x86
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,5 +66,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D63F4288-F386-4EBF-8E77-A3E1D840FC0B} = {F0104956-7148-4AA2-B370-C02E92593023}
 		{0C608780-2A97-4573-AD5E-7313DEED858C} = {F0104956-7148-4AA2-B370-C02E92593023}
+		{D34FF5E7-509B-4087-9457-DA9AB5D1B395} = {F0104956-7148-4AA2-B370-C02E92593023}
 	EndGlobalSection
 EndGlobal
