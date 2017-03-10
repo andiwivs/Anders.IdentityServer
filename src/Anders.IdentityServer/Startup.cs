@@ -16,8 +16,11 @@ namespace Anders.IdentityServer
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+
             services.AddIdentityServer()            // TODO: implement persistent credential storage https://identityserver4.readthedocs.io/en/release/quickstarts/8_entity_framework.html#refentityframeworkquickstart
                 .AddTemporarySigningCredential()    // TODO: implement persistent signing key https://identityserver4.readthedocs.io/en/release/topics/crypto.html#refcrypto
+                .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
                 .AddTestUsers(Config.GetUsers());   // see https://identityserver4.readthedocs.io/en/release/quickstarts/2_resource_owner_passwords.html
@@ -35,10 +38,8 @@ namespace Anders.IdentityServer
 
             app.UseIdentityServer();
 
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
+            app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

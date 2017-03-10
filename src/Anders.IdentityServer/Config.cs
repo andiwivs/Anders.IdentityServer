@@ -1,6 +1,8 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityServer4;
+using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace Anders.IdentityServer
 {
@@ -19,6 +21,7 @@ namespace Anders.IdentityServer
         {
             return new List<Client>
             {
+                // Client Credentials flow
                 new Client
                 {
                     ClientId = "client",
@@ -36,6 +39,7 @@ namespace Anders.IdentityServer
                     AllowedScopes = { "api1" }
                 },
 
+                // Resource Owner Password flow
                 new Client
                 {
                     ClientId = "ro.client",
@@ -51,6 +55,26 @@ namespace Anders.IdentityServer
 
                     // scopes that client has access to
                     AllowedScopes = { "api1" }
+                },
+
+                // OpenID Connect implicit flow client (MVC client)
+                new Client
+                {
+                    ClientId = "mvc",
+                    ClientName = "MVC Client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+
+                    // where to redirect to after login
+                    RedirectUris = { "http://localhost:5002/signin-oidc" },
+
+                    // where to redirect to after logout
+                    PostLogoutRedirectUris = { "http://localhost:5002" },
+
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile
+                    }
                 }
             };
         }
@@ -63,14 +87,35 @@ namespace Anders.IdentityServer
                 {
                     SubjectId = "1",
                     Username = "alice",
-                    Password = "password"
+                    Password = "password",
+
+                    Claims = new []
+                    {
+                        new Claim("name", "Alice"),
+                        new Claim("website", "https://alice.com")
+                    }
                 },
                 new TestUser
                 {
                     SubjectId = "2",
                     Username = "bob",
-                    Password = "password"
+                    Password = "password",
+
+                    Claims = new []
+                    {
+                        new Claim("name", "Bob"),
+                        new Claim("website", "https://bob.com")
+                    }
                 }
+            };
+        }
+
+        public static IEnumerable<IdentityResource> GetIdentityResources()
+        {
+            return new List<IdentityResource>
+            {
+                new IdentityResources.OpenId(),
+                new IdentityResources.Profile(),
             };
         }
     }
