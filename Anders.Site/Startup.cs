@@ -56,6 +56,8 @@ namespace Anders.Site
                 AuthenticationScheme = "Cookies"
             });
 
+            /*
+            // OpenID Connect implicit flow
             app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
             {
                 AuthenticationScheme = "oidc",
@@ -65,6 +67,26 @@ namespace Anders.Site
                 RequireHttpsMetadata = false,
 
                 ClientId = "mvc",
+                SaveTokens = true
+            });
+            */
+
+            // hybrid flow
+            app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
+            {
+                AuthenticationScheme = "oidc",
+                SignInScheme = "Cookies",
+
+                Authority = "http://localhost:5000",
+                RequireHttpsMetadata = false,
+
+                ClientId = "mvc",
+                ClientSecret = "secret", // used for hybrid flow authentication
+
+                ResponseType = "code id_token",
+                Scope = { "api1", "offline_access" },
+
+                GetClaimsFromUserInfoEndpoint = true,
                 SaveTokens = true
             });
 
