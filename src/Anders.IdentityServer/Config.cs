@@ -121,6 +121,27 @@ namespace Anders.IdentityServer
                         IdentityServerConstants.StandardScopes.Profile,
                         "api1"
                     }
+                },
+
+                // WebForms client
+                new Client
+                {
+                    ClientId = "webformsite",
+                    ClientName = "WebForm Client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+                    
+                    RedirectUris =           { "http://localhost:5004/" },
+                    PostLogoutRedirectUris = { "http://localhost:5004/" },
+                    AllowedCorsOrigins =     { "http://localhost:5004/" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        "api1"
+                    }
                 }
             };
         }
@@ -162,6 +183,7 @@ namespace Anders.IdentityServer
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new IdentityResources.Email()
             };
         }
     }
