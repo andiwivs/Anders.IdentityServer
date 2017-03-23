@@ -71,22 +71,22 @@ namespace Anders.IdentityServer
                 ClientId = "434483408261-55tc8n0cs4ff1fe21ea8df2o443v2iuc.apps.googleusercontent.com",
                 ClientSecret = "3gcoTrEDPPJ0ukn_aYYT6PWo"
             });
-            
-            //app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
-            //{
-            //    SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme,
-            //    SignOutScheme = IdentityServerConstants.SignoutScheme,
 
-            //    DisplayName = "OpenID Connect",
-            //    Authority = "https://demo.identityserver.io/",
-            //    ClientId = "implicit",
+            app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
+            {
+                SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme,
+                SignOutScheme = IdentityServerConstants.SignoutScheme,
 
-            //    TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        NameClaimType = "name",
-            //        RoleClaimType = "role"
-            //    }
-            //});
+                DisplayName = "OpenID Connect",
+                Authority = "https://demo.identityserver.io/",
+                ClientId = "implicit",
+
+                TokenValidationParameters = new TokenValidationParameters
+                {
+                    NameClaimType = "name",
+                    RoleClaimType = "role"
+                }
+            });
 
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
