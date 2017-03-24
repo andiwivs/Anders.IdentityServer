@@ -26,16 +26,15 @@ namespace Anders.IdentityServer
 
             var connectionString = @"server=(localdb)\mssqllocaldb;database=IdentityServer4.Quickstart;trusted_connection=yes";
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
-
-            /*
+            
             // configure identity server with in-memory users, but EF stores for clients and resources
             services.AddIdentityServer()
                 .AddTemporarySigningCredential()
                 .AddTestUsers(Config.GetUsers())
                 .AddConfigurationStore(builder => builder.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationsAssembly)))
                 .AddOperationalStore(builder => builder.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationsAssembly)));
-            */
-            
+
+            /*
             // in-memory config store
             services.AddIdentityServer()            // TODO: implement persistent credential storage https://identityserver4.readthedocs.io/en/release/quickstarts/8_entity_framework.html#refentityframeworkquickstart
                 .AddTemporarySigningCredential()    // TODO: implement persistent signing key https://identityserver4.readthedocs.io/en/release/topics/crypto.html#refcrypto
@@ -43,7 +42,7 @@ namespace Anders.IdentityServer
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
                 .AddTestUsers(Config.GetUsers());   // see https://identityserver4.readthedocs.io/en/release/quickstarts/2_resource_owner_passwords.html
-            
+            */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
